@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Dispatch } from 'react'
+import { useState, useEffect, Dispatch } from 'react'
 
 export const store: { [key: string]: any } = {}
 export const setStore = (key: string, value: any) => {
@@ -9,16 +9,17 @@ export const setStore = (key: string, value: any) => {
 }
 
 export default (key: string): [any, (value: any) => void] => {
-  const item = store[key] || (store[key] = { value: null, ob: [] })
-  const { value, ob } = item
+  const { value, ob, set } = store[key] || (store[key] = {
+    value: null,
+    ob: [],
+    set: (value: any) => setStore(key, value)
+  })
+
   const [state, setState] = useState(value)
-  const set = useCallback((value: any) => setStore(key, value), [])
 
   useEffect(() => {
     ob.push(setState)
-    return () => {
-      item.ob = ob.filter((fn: Dispatch<any>) => fn !== setState)
-    }
+    return () => ob.splice(ob.findIndex((fn: Dispatch<any>) => fn === setState), 1)
   }, [])
 
   return [state, set]

@@ -1,6 +1,6 @@
 {
   "name": "@ovis/use-store",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "license": "MIT",
   "description": "Minimal state management lib",
   "keywords": [
