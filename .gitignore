@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# test
+/coverage
+
+# production
+/build
+/dist
+/.next
+/out
+/lib
+
+# misc
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

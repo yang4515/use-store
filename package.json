@@ -1,0 +1,26 @@
+{
+  "name": "@ovis/use-store",
+  "version": "1.0.2",
+  "license": "MIT",
+  "description": "Minimal state management lib",
+  "keywords": [
+    "react",
+    "hooks",
+    "store",
+    "useState",
+    "useStore"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yang4515/use-store.git"
+  },
+  "scripts": {
+    "release": "tsc && copyPackage && yarn publish lib --access=public && rm -rf lib"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0"
+  }
+}
